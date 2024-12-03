@@ -4,14 +4,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"/>
-  <title>History Flooder
+  <title>Puzzle Redirect
   </title>
-  <h1 id="irfde">History Flooder V2.3 (Not working right now.)
+  <h1 id="irfde">flooder puzzle
   </h1>
   <form method="get" id="iczhm">
     <input type="text" required id="name-2" placeholder="Website Name. (Put any Website name.)"/>
-    <input type="text" required id="url-2" placeholder="Website URL. (Put a valid Website URL.)"/>
-    <input type="number" required id="count-2" placeholder="Count (Pick a number to flood your history.)"/>
+    <input type="text" required id="url-2" placeholder="First Website URL"/>
+    <input type="text" required id="url-3" placeh	older="Second Website URL"/>
+    <input type="number" required id="count-2" placeholder="Count (Number of times to open each website)"/>
     <button type="button" id="iqlit">Go!</button>
     <div id="ij9wb">
       <span>Insert here your custom code</span>
@@ -25,21 +26,15 @@
     margin: 0;
   }
   *{
-    box-sizing:border-box !important;
-    font-family:"Roboto", sans-serif !important;
-    padding:0;
-    margin:0;
+    box-sizing:border-box;
   }
   body{
     margin:0;
+    font-family:"Roboto", sans-serif !important;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:column;
-  }
-  body, html{
-    padding:0;
-    margin:0;
     background-color:#222;
     height:100%;
     width:100%;
@@ -66,8 +61,6 @@
   button{
     background-color:#444;
     cursor:pointer;
-  }
-  #iqlit{
     box-shadow:unset;
     font-family:Arial Black, Gadget, sans-serif;
     text-shadow:0px 0px 30px black;
