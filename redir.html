@@ -1,3 +1,23 @@
-<script>
-  location = new URLSearchParams(location.search).get("u");
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Redirect</title>
+</head>
+<body>
+    <h1>URL Redirect Example</h1>
+    <script>
+        // Get the 'u' parameter from the URL
+        let url = new URL(window.location.href);
+        let redirectUrl = url.searchParams.get("u");
+
+        // Check if the 'u' parameter is present
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        } else {
+            console.log("Missing URL parameter.");
+        }
+    </script>
+</body>
+</html>
