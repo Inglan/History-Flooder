@@ -1,73 +1,102 @@
-<body id="i26o">
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"/>
-  <title>History Flooder
-  </title>
-  <header>
-    <h1>History Flooder
-    </h1>
-  </header>
-  <main>
-    <form method="get">
-      <label for="name">Website Name</label>
-      <input type="text" required id="name-2" placeholder="Website Name"/>
-      <label for="url">Website URL</label>
-      <input type="text" required id="url-2" placeholder="Website URL"/>
-      <label for="count">Count</label>
-      <input type="number" required id="count-2" placeholder="Count"/>
-      <button type="button">Go!</button>
-    </form>
-  </main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet" />
+    <title>History Flooder</title>
+    <style>
+        * {
+            box-sizing: border-box !important;
+            font-family: "Roboto", sans-serif !important;
+            padding: 0;
+            margin: 0;
+        }
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            background-color: #222;
+            height: 100%;
+            width: 100%;
+        }
+        h1, h2 {
+            color: white;
+            font-weight: 100;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px;
+        }
+        form > * {
+            margin: 3px;
+            padding: 10px;
+            border: 0;
+            outline: 0;
+            color: white;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #444;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>History Flooder</h1>
+    </header>
+    <main>
+        <form onsubmit="flood();return false">
+            <label for="name">Website Name</label>
+            <input required type="text" id="name" placeholder="Website Name" />
+            <label for="url">Website URL</label>
+            <input required type="text" id="url" placeholder="Website URL" />
+            <label for="count">Count</label>
+            <input required type="number" id="count" placeholder="Count" />
+            <button>Go!</button>
+        </form>
+    </main>
+    <script>
+        function flood() {
+            let name = document.querySelector("#name").value;
+            let url = document.querySelector("#url").value;
+            let count = document.querySelector("#count").value;
+            document.querySelector("form").outerHTML = "<h2>Flooding...</h2>";
+            document.title = name;
+            Array.from({ length: count }).forEach(function () {
+                history.pushState(
+                    {},
+                    "",
+                    "redir.html?u=" +
+                    url +
+                    "#" +
+                    Math.random() +
+                    Math.random() +
+                    Math.random() +
+                    Math.random() +
+                    Math.random()
+                );
+            });
+            document.querySelector("h2").outerHTML = "<h2>Done!</h2>";
+        }
+
+        // Handle URL redirection
+        let redirectUrl = new URLSearchParams(window.location.search).get("u");
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        }
+    </script>
 </body>
-<style>* {
-  box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  *{
-    box-sizing:border-box !important;
-    font-family:"Roboto", sans-serif !important;
-    padding:0;
-    margin:0;
-  }
-  body, html{
-    padding:0;
-    margin:0;
-    background-color:#222;
-    height:100%;
-    width:100%;
-  }
-  h1, h2{
-    color:white;
-    font-weight:100;
-  }
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-  }
-  main{
-    display:flex;
-    flex-direction:column;
-    width:50%;
-    padding:20px;
-  }
-  form > *{
-    margin:3px;
-    padding:10px;
-    border:0;
-    outline:0;
-    color:white;
-    background-color:#333;
-    border-radius:10px;
-  }
-  button{
-    background-color:#444;
-    cursor:pointer;
-  }
-</style>
+</html>
