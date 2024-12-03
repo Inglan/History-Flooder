@@ -1,102 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet" />
-    <title>History Flooder</title>
-    <style>
-        * {
-            box-sizing: border-box !important;
-            font-family: "Roboto", sans-serif !important;
-            padding: 0;
-            margin: 0;
-        }
-        body,
-        html {
-            padding: 0;
-            margin: 0;
-            background-color: #222;
-            height: 100%;
-            width: 100%;
-        }
-        h1, h2 {
-            color: white;
-            font-weight: 100;
-        }
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            padding: 20px;
-        }
-        form > * {
-            margin: 3px;
-            padding: 10px;
-            border: 0;
-            outline: 0;
-            color: white;
-            background-color: #333;
-            border-radius: 10px;
-        }
-        button {
-            background-color: #444;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
+<body id="i26o">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"/>
+  <title>History Flooder
+  </title>
+  <header>
+    <h1 id="ii2ms">History Flooder V3.9 (Making It better very soon)
+    </h1>
+  </header>
+  <main>
+    <form method="get">
+      <label for="name" id="i9d7c">Website Name:</label>
+      <input type="text" required id="name-2" placeholder="Website Name (It's recommended to use names like Clever | Portal, or a different school website name to avoid getting In trouble.)"/>
+      <label for="url" id="iwgth">Website URL:</label>
+      <input type="text" required id="url-2" placeholder="Website URL (You can make It so if they check what you have been searching you can make It that you were the website you were on.)"/>
+      <label for="count" id="i3kzc">Count:</label>
+      <input type="number" required id="count-2" placeholder="Count (The max Is 5000 Idk I will find out soon and changing this soon.)"/>
+      <button type="button">Go!</button>
+    </form>
+  </main>
+  <div id="i1sf1">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"/>
+    <title>Contact Us
+    </title>
     <header>
-        <h1>History Flooder</h1>
+      <h1>Contact Us
+      </h1>
     </header>
     <main>
-        <form onsubmit="flood();return false">
-            <label for="name">Website Name</label>
-            <input required type="text" id="name" placeholder="Website Name" />
-            <label for="url">Website URL</label>
-            <input required type="text" id="url" placeholder="Website URL" />
-            <label for="count">Count</label>
-            <input required type="number" id="count" placeholder="Count" />
-            <button>Go!</button>
-        </form>
+      <h2>Send Us Your Suggestions
+      </h2>
+      <form method="post" action="mailto:dugh1573asd@gmail.com" enctype="text/plain">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required/>
+        <label for="suggestion">Suggestion</label>
+        <textarea id="suggestion" name="suggestion" placeholder="Your suggestion" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
     </main>
-    <script>
-        function flood() {
-            let name = document.querySelector("#name").value;
-            let url = document.querySelector("#url").value;
-            let count = document.querySelector("#count").value;
-            document.querySelector("form").outerHTML = "<h2>Flooding...</h2>";
-            document.title = name;
-            Array.from({ length: count }).forEach(function () {
-                history.pushState(
-                    {},
-                    "",
-                    "redir.html?u=" +
-                    url +
-                    "#" +
-                    Math.random() +
-                    Math.random() +
-                    Math.random() +
-                    Math.random() +
-                    Math.random()
-                );
-            });
-            document.querySelector("h2").outerHTML = "<h2>Done!</h2>";
-        }
-
-        // Handle URL redirection
-        let redirectUrl = new URLSearchParams(window.location.search).get("u");
-        if (redirectUrl) {
-            window.location.href = redirectUrl;
-        }
-    </script>
+  </div>
 </body>
-</html>
+<style>* {
+  box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  *{
+    box-sizing:border-box !important;
+    font-family:"Roboto", sans-serif !important;
+    padding:0;
+    margin:0;
+  }
+  body, html{
+    padding:0;
+    margin:0;
+    background-color:#222;
+    height:100%;
+    width:100%;
+  }
+  h1, h2{
+    color:white;
+    font-weight:100;
+  }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+  }
+  main{
+    display:flex;
+    flex-direction:column;
+    width:50%;
+    padding:20px;
+  }
+  form > *{
+    margin:3px;
+    padding:10px;
+    border:0;
+    outline:0;
+    color:white;
+    background-color:#333;
+    border-radius:10px;
+  }
+  button{
+    background-color:#444;
+    cursor:pointer;
+  }
+  #count-2{
+    text-shadow:unset;
+  }
+</style>
