@@ -1,69 +1,86 @@
-<body id="i26o">
-  <meta charset="UTF-8" id="igojx"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"/>
-  <title>Puzzle Redirect
-  </title>
-  <h1 id="irfde">Interactive Puzzle V1.0
-  </h1>
-  <form method="get" id="iczhm">
-    <input type="text" required id="name-2" placeholder="Website Name. (Put any Website name.)"/>
-    <input type="text" required id="url-2" placeholder="First Website URL"/>
-    <input type="text" required id="url-3" placeholder="Second Website URL"/>
-    <input type="number" required id="count-2" placeholder="Count (Number of times to open each website)"/>
-    <button type="button" id="iqlit">Go!</button>
-  </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet" />
+    <title>History Flooder</title>
+    <style>
+        * {
+            box-sizing: border-box !important;
+            font-family: "Roboto", sans-serif !important;
+            padding: 0;
+            margin: 0;
+        }
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            background-color: #222;
+            height: 100%;
+            width: 100%;
+        }
+        h1,
+        h3 {
+            color: white;
+            font-weight: 100;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px;
+        }
+        form > * {
+            margin: 3px;
+            padding: 10px;
+            border: 0;
+            outline: 0;
+            color: white;
+            background-color: #333;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #444;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>History Flooder</h1>
+    <form onsubmit="flood(); return false;">
+        <label for="name">Website Name</label>
+        <input required type="text" id="name" placeholder="Website Name" />
+        <label for="url">Website URL</label>
+        <input required type="text" id="url" placeholder="Website URL" />
+        <label for="count">Count</label>
+        <input required type="number" id="count" placeholder="Count" />
+        <button type="submit">Go!</button>
+    </form>
+    <script>
+        function flood() {
+            let name = document.querySelector("#name").value;
+            let url = document.querySelector("#url").value;
+            let count = parseInt(document.querySelector("#count").value);
+            document.querySelector("form").innerHTML = "<h3>Flooding...</h3>";
+            document.title = name;
+            for (let i = 0; i < count; i++) {
+                history.pushState(
+                    {},
+                    "",
+                    "redir.html?u=" + url + "#" + Math.random().toString(36).substring(7)
+                );
+            }
+            document.querySelector("form").innerHTML = "<h3>Done!</h3>";
+        }
+    </script>
 </body>
-<style>* {
-  box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  *{
-    box-sizing:border-box;
-  }
-  body{
-    margin:0;
-    font-family:"Roboto", sans-serif !important;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    background-color:#222;
-    height:100%;
-    width:100%;
-  }
-  h1, h3{
-    color:white;
-    font-weight:100;
-  }
-  form{
-    display:flex;
-    flex-direction:column;
-    width:50%;
-    padding:20px;
-  }
-  form > *{
-    margin:3px;
-    padding:10px;
-    border:0;
-    outline:0;
-    color:white;
-    background-color:#333;
-    border-radius:10px;
-  }
-  button{
-    background-color:#444;
-    cursor:pointer;
-    box-shadow:unset;
-    font-family:Arial Black, Gadget, sans-serif;
-    text-shadow:0px 0px 30px black;
-  }
-  #count-2{
-    float:none;
-    text-align:left;
-  }
-</style>
+</html>
