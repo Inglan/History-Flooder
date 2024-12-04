@@ -1,102 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
     <title>History Flooder</title>
+  </head>
+  <body>
+    <h1>History Flooder</h1>
+    <form onsubmit="flood();return false">
+      <input required type="text" id="name" placeholder="Website Name" />
+      <input required type="text" id="url" placeholder="Website URL" />
+      <input required type="number" id="count" placeholder="Count" />
+      <button>Go!</button>
+    </form>
     <style>
-        * {
-            box-sizing: border-box !important;
-            font-family: "Roboto", sans-serif !important;
-            padding: 0;
-            margin: 0;
-        }
-        body,
-        html {
-            padding: 0;
-            margin: 0;
-            background-color: #222;
-            height: 100%;
-            width: 100%;
-        }
-        h1, h2 {
-            color: white;
-            font-weight: 100;
-        }
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        main {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            padding: 20px;
-        }
-        form > * {
-            margin: 3px;
-            padding: 10px;
-            border: 0;
-            outline: 0;
-            color: white;
-            background-color: #333;
-            border-radius: 10px;
-        }
-        button {
-            background-color: #444;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>History Flooder</h1>
-    </header>
-    <main>
-        <form onsubmit="flood();return false">
-            <label for="name">Website Name</label>
-            <input required type="text" id="name" placeholder="Website Name" />
-            <label for="url">Website URL</label>
-            <input required type="text" id="url" placeholder="Website URL" />
-            <label for="count">Count</label>
-            <input required type="number" id="count" placeholder="Count" />
-            <button>Go!</button>
-        </form>
-    </main>
-    <script>
-        function flood() {
-            let name = document.querySelector("#name").value;
-            let url = document.querySelector("#url").value;
-            let count = document.querySelector("#count").value;
-            document.querySelector("form").outerHTML = "<h2>Flooding...</h2>";
-            document.title = name;
-            Array.from({ length: count }).forEach(function () {
-                history.pushState(
-                    {},
-                    "",
-                    "redir.html?u=" +
-                    url +
-                    "#" +
-                    Math.random() +
-                    Math.random() +
-                    Math.random() +
-                    Math.random() +
-                    Math.random()
-                );
-            });
-            document.querySelector("h2").outerHTML = "<h2>Done!</h2>";
-        }
+      * {
+        box-sizing: border-box !important;
+        font-family: "Roboto", sans-serif !important;
+        padding: 0;
+        margin: 0;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+        background-color: #222;
+        height: 100%;
+        width: 100%;
+      }
+      h1,
+      h3 {
+        color: white;
+        font-weight: 100;
+      }
 
-        // Handle URL redirection
-        let redirectUrl = new URLSearchParams(window.location.search).get("u");
-        if (redirectUrl) {
-            window.location.href = redirectUrl;
-        }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding: 20px;
+      }
+      form > * {
+        margin: 3px;
+        padding: 10px;
+        border: 0;
+        outline: 0;
+        color: white;
+        background-color: #333;
+        border-radius: 10px;
+      }
+      button {
+        background-color: #444;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function flood() {
+        name = document.querySelector("#name").value;
+        url = document.querySelector("#url").value;
+        count = document.querySelector("#count").value;
+        document.querySelector("form").outerHTML = "<h3>Flooding... Be patience...</h3>";
+        document.title = name;
+        Array.from({ length: count }).forEach(function () {
+          history.pushState(
+            {},
+            "",
+            "redir.html?u=" +
+              url +
+              "#" +
+              Math.random() +
+              Math.random() +
+              Math.random() +
+              Math.random() +
+              Math.random()
+          );
+        });
+        document.querySelector("h3").outerHTML = "<h3>Done! Just wait If you can't go to a different tab that means It's still flooding ur history!</h3>";
+      }
     </script>
-</body>
+  </body>
 </html>
