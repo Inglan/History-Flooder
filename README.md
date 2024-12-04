@@ -4,7 +4,7 @@
 Just go here. Main: https://inglan.github.io/History-Flooder/
 
 
-If It doesn't work try this one: Backup: https://bfdifan1.github.io/History-Flooder-V2.3/
+If It doesn't work try this one. Backup: https://bfdifan1.github.io/History-Flooder-V2.3/
 
 # This Is a backup when the other website Isn't working.
 
