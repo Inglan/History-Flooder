@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+    <title>History Flooder</title>
+  </head>
+  <body>
+    <h1>History Flooder</h1>
+    <form onsubmit="flood();return false">
+      <input required type="text" id="name" placeholder="Website Name" />
+      <input required type="text" id="url" placeholder="Website URL" />
+      <input required type="number" id="count" placeholder="Count" />
+      <button>Go!</button>
+    </form>
+    <style>
+      * {
+        box-sizing: border-box !important;
+        font-family: "Roboto", sans-serif !important;
+        padding: 0;
+        margin: 0;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+        background-color: #222;
+        height: 100%;
+        width: 100%;
+      }
+      h1,
+      h3 {
+        color: white;
+        font-weight: 100;
+      }
 
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding: 20px;
+      }
+      form > * {
+        margin: 3px;
+        padding: 10px;
+        border: 0;
+        outline: 0;
+        color: white;
+        background-color: #333;
+        border-radius: 10px;
+      }
+      button {
+        background-color: #444;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      function flood() {
+        name = document.querySelector("#name").value;
+        url = document.querySelector("#url").value;
+        count = document.querySelector("#count").value;
+        document.querySelector("form").outerHTML = "<h3>Flooding... Be patience...</h3>";
+        document.title = name;
+        Array.from({ length: count }).forEach(function () {
+          history.pushState(
+            {},
+            "",
+            "redir.html?u=" +
+              url +
+              "#" +
+              Math.random() +
+              Math.random() +
+              Math.random() +
+              Math.random() +
+              Math.random()
+          );
+        });
+        document.querySelector("h3").outerHTML = "<h3>Done! Just wait If you can't go to a different tab that means It's still flooding ur history!</h3>";
+      }
+    </script>
+  </body>
+</html>
